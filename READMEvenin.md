@@ -1,6 +1,6 @@
 # Venin
-Membre: Alex, Vincent, Farran, Joo-Won
+Membres: Alex, Vincent, Faraan, Joo-Won
 
-projet: propagation venin dans un corps
+projet: propagation du venin dans un corps
 
 interaction: venin/anti-venin
