@@ -11,3 +11,4 @@ Joo-Won Faraan Alex Vincent
 
 [+ d'info](https://docs.google.com/document/d/1caLiQJIDLWALhjkCo4FwB4u5WUMhETaDe33ADTXvx18/edit)
 
+[Attributs des agents, Paramètre du modèle, Indicateur](https://docs.google.com/document/d/1TsZMKN33ZfsXuKn9TcS-ps__Nh1SWn7zAtl9pk-GbKs/edit)
