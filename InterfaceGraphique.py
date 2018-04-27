@@ -1,7 +1,6 @@
-
-from Tkinter import *
-from converter import * 
-import time
+from tkinter import *
+from convertervrai import * 
+from FaraanSupvrai import *
 import sys  
 import os
 from numpy import *
@@ -12,8 +11,9 @@ def restart_program():
     os.execl(python, python,* sys.argv)
 
 window=Tk()
+window.title("Venin")
 canvas=Canvas(window,height=510,width=510,bg="white")
-canvas.grid(row=0,column=1)
+canvas.grid(row=0,column=0)
 
 
 def couleur(p):
@@ -28,21 +28,10 @@ def draw(x):
 
 draw(10) 
 
-canvas.create_oval(-70,-70,580, 580,width=138,outline="grey85" )
-canvas.create_oval(0,0,510,510,width=1,outline="black")
+#canvas.create_oval(-70,-70,580, 580,width=138,outline="grey85" )
+
 
 #variable
-mat = array([[[1, 0.02245242],
-        [0.05411948, 0.10433879]],
-
-       [[0.02142567, 1],
-        [0.06447764, 0.03263258]],
-
-       [[0.02934682, 0.07481326],
-        [1, 0.09996509]],
-
-       [[0.016496  , 0.09931502],
-        [0.06480892, 1]]])
 
 
 def propagation(x,y,p):
@@ -50,30 +39,28 @@ def propagation(x,y,p):
     x1, y1, x2, y2 = convertisseur_coord(x,y)
     canvas.create_rectangle(x1, y1, x2, y2, fill =couleur(p)) 
 
-def prop(mat):
+def prop(i, mat):
     x , y, z = shape(mat)
-    for i in range (x):
-
-        for ligne in range (y):
-            for colonne in range (z):
-                propagation(ligne, colonne, mat[i, ligne, colonne])
-    
-prop(mat)
-
-#propagation(25,25,1)
-#propagation(25,50,1)
-#propagation(25,0,1)
-#propagation(0,25,1)
-#propagation(50,25,1)
-
-
-def donnee():
+    for ligne in range (y):
+        for colonne in range (z):
+            propagation(ligne, colonne, mat[i, colonne, ligne])
     
 
-    print(couleur(0.44))
 
 
-Button(window,text="Morsure",command=donnee) .grid(row=0,column=0)
-Button(window,text="Restart",command=restart_program) .grid(row=1,column=0)
+def donnee(val):
+    mat = launch(51,25,25,2,80)
+    variable = mat[int(val)]
+
+    prop(int(val), mat)
+    canvas.create_oval(0,0,510,510,width=1,outline="black")
+
+
+
+Button(window,text="Restart",command=restart_program, bg ="#990000") .grid(row=1,column=0)
+glisseur = Scale(window,bg ="#990000", orient='horizontal',command=donnee, from_=0, to = 80, length=600) .grid(row=2, column=0)
+venin_glisseur = Scale(window,bg ="#990000", orient='horizontal', from_=0, to = 10, resolution = 0.1, length=200) .grid(row=3, column=0, sticky=W)
+anticoag_glisseur = Scale(window,bg ="#990000", orient='horizontal', from_=0, to = 10, resolution = 0.1, length=200) .grid(row=4, column=0, sticky=W)
+
 
 window.mainloop()
