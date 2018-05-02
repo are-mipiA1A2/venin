@@ -58,9 +58,9 @@ def donnee(val):
 
 
 Button(window,text="Restart",command=restart_program, bg ="#990000") .grid(row=1,column=0)
-glisseur = Scale(window,bg ="#990000", orient='horizontal',command=donnee, from_=0, to = 80, length=600) Label="étape" .grid(row=2, column=0)
-venin_glisseur = Scale(window,bg ="green", orient='horizontal', from_=0, to = 10, resolution = 0.1, length=200) Label="venin efficacité" .grid(row=3, column=0, sticky=W)
-anticoag_glisseur = Scale(window,bg ="white", orient='horizontal', from_=0, to = 10, resolution = 0.1, length=200) Label="anticoagulant efficacité" .grid(row=4, column=0, sticky=W)
+glisseur = Scale(window,bg ="#990000", orient='horizontal',command=donnee, from_=0, to = 80, length=600, label="étape") .grid(row=2, column=0)
+venin_glisseur = Scale(window,bg ="green", orient='horizontal', from_=0, to = 10, resolution = 0.1, length=200, label="venin puissance" ).grid(row=3, column=0, sticky=W)
+anticoag_glisseur = Scale(window,bg ="white", orient='horizontal', from_=0, to = 10, resolution = 0.1, length=200, label="anticoagulant puissance") .grid(row=4, column=0, sticky=W)
 
 
 window.mainloop()
